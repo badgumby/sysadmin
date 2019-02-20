@@ -17,4 +17,4 @@ takeown /F "Full-path-to-directory" /A /R /D Y
 /D Y (Prompt answer yes)
 ```
 
-> Once completed, got to the parent folder, and re-propagate permissions down the tree.
+> Once completed, go to the parent folder, and re-propagate permissions down the tree.
