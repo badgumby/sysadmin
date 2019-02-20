@@ -8,8 +8,8 @@
 
 ### Netlogon Debugging
 
-> Enable debugging on Windows Server 2003 or newer
-> Logs are writtend to %windir%/debug/Netlogon.log
+> Enable debugging on Windows Server 2003 or newer.
+> Logs are written to `%windir%/debug/Netlogon.log`
 
 ```
 Nltest /DBFlag:2080FFFF
