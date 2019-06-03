@@ -18,3 +18,11 @@ takeown /F "Full-path-to-directory" /A /R /D Y
 ```
 
 > Once completed, go to the parent folder, and re-propagate permissions down the tree.
+
+# WSUS
+
+### WSUSPool crashes due to private bytes memory limit
+
+> Internet Information Services (IIS) Manager -> Server -> Application Pools -> Select “WSUSPool” -> Actions Advanced -> Recycling -> Change value of “Private Memory Limit (KB)”
+
+> Set to a higher number, such as 8000000 (8GB)
