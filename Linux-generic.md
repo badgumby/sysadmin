@@ -46,9 +46,7 @@ $InputRunFileMonitor
 local3.* @@syslog.domain.com:port
 ```
 
-> Ignore writing local3 facility to /var/log/syslog
-
-> Update /etc/rsyslog.d/50-default.conf
+> Ignore writing local3 facility to /var/log/syslog by updating /etc/rsyslog.d/50-default.conf
 
 `*.*;auth,authpriv.none,local3.none -/var/log/syslog`
 
