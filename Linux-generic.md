@@ -30,3 +30,28 @@ subjectAltName = @alt_names
 DNS.1 = server.domain.com
 DNS.2 = alias.domain.com
 ```
+
+### Shipping flat file logs via rsyslog
+
+> Add to /etc/rsyslog.conf
+
+```
+$ModLoad imfile
+$InputFileName /var/log/logfile
+$InputFileTag log-tag
+$InputFileStateFile log-state
+$InputFileSeverity info
+$InputFileFacility local3
+$InputRunFileMonitor
+local3.* @@syslog.domain.com:port
+```
+
+> Ignore writing local3 facility to /var/log/syslog
+
+> Update /etc/rsyslog.d/50-default.conf
+
+`*.*;auth,authpriv.none,local3.none -/var/log/syslog`
+
+> Extra: Ship all other active logs to syslog
+
+`*.* @syslog.domain.com:port`
