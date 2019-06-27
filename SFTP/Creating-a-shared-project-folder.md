@@ -1,8 +1,8 @@
 # Creating an SFTP shared project folder
 ### Key for examples in this document
 
- - Example company employee group/directory: Example-Project
- - Example External group/directory: Example-External-Group
+ - Example project group/directory: Example-Project
+ - Example external group/directory: Example-External-Group
 
 ##### Create project folder under /home/SFTP
 
@@ -30,8 +30,10 @@ setfacl -Rm d:other::rx /home/SFTP/Example-Project
 
 ##### Create groups with the same names as the directories
 
-`groupadd Example-Project`
-`groupadd Example-External-Group`
+```
+groupadd Example-Project
+groupadd Example-External-Group
+```
 
 ##### Change directory group (do not change owner from root - it will break CHROOT)
 
