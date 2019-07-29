@@ -31,6 +31,16 @@ DNS.1 = server.domain.com
 DNS.2 = alias.domain.com
 ```
 
+### Test send to a syslog server
+
+Testing with `nmap-ncat`
+
+`echo -n "Test message" | nc -4u -w1 <host/IP> <port>`
+
+Testing with `logger`
+
+`logger -n <host/IP> -P <port> "Testing again"`
+
 ### Shipping flat file logs via rsyslog
 
 > Add to /etc/rsyslog.conf
