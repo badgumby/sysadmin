@@ -7,11 +7,11 @@
 > Note, you do not need to declare the old location in this command. Changing this path does not take effect immediately, but will be used the next time the database starts up.
 
 ```
-USE master; --do this all from the master
+USE master;
 ALTER DATABASE foo
-MODIFY FILE (name='DB_Data1',filename='E:\DB_Folder\DB.mdf'); --Filename is new location
+MODIFY FILE (name='DB_test',filename='E:\DB_Folder\DB_test.mdf');
 ```
-> Note, you do not need to declare the old location in this command. Changing this path does not take effect immediately, but will be used the next time the database starts up.
+> Note: The filename  is the new location. You do not need to declare the old location in this command. Changing this path does not take effect immediately, but will be used the next time the database starts up.
 
 ##### Set the database offline
 
