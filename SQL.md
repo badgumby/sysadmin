@@ -2,12 +2,21 @@
 
 ### Move database files in MS SQL Server
 
+##### Get current location of system databases
+
+```
+USE master;
+
+SELECT * FROM sys.master_files;
+```
+
 ##### Set new database location
 
 > Note, you do not need to declare the old location in this command. Changing this path does not take effect immediately, but will be used the next time the database starts up.
 
 ```
 USE master;
+
 ALTER DATABASE db_name
 MODIFY FILE (name='DB_test',filename='E:\DB_Folder\DB_test.mdf');
 
