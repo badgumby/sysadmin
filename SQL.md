@@ -12,8 +12,6 @@ SELECT * FROM sys.master_files;
 
 ##### Set new database location
 
-> Note, you do not need to declare the old location in this command. Changing this path does not take effect immediately, but will be used the next time the database starts up.
-
 ```
 USE master;
 
@@ -27,13 +25,13 @@ MODIFY FILE (name='DB_test_log',filename='E:\DB_Folder\DB_test.ldf');
 
 ##### Set the database offline
 
-> WITH ROLLBACK IMMEDIATE will force everyone offline and rollback their open transactions
+Using `WITH ROLLBACK IMMEDIATE` will force everyone offline and rollback their open transactions
 
 `ALTER DATABASE db_name SET OFFLINE WITH ROLLBACK IMMEDIATE;`
 
 ##### Move files to new location
 
-`Self-explanatory`
+Self-explanatory
 
 ##### Bring database back online
 
