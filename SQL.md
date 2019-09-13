@@ -36,3 +36,18 @@ Self-explanatory
 ##### Bring database back online
 
 `ALTER DATABASE db_name SET ONLINE;`
+
+### Repair 'Recovery Pending' databases
+
+> This will remove corrupt data, and may cause data loss
+
+```
+ALTER DATABASE [DB_Name] SET EMERGENCY;
+GO
+ALTER DATABASE [DB_Name] set single_user
+GO
+DBCC CHECKDB ([DB_Name], REPAIR_ALLOW_DATA_LOSS) WITH ALL_ERRORMSGS;
+GO
+ALTER DATABASE [DB_Name] set multi_user
+GO
+```
