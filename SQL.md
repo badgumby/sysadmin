@@ -1,4 +1,4 @@
-# SQL
+# SQL (MS-MySQL-MariaDB)
 
 ### Move database files in MS SQL Server
 
@@ -50,4 +50,50 @@ DBCC CHECKDB ([DB_Name], REPAIR_ALLOW_DATA_LOSS) WITH ALL_ERRORMSGS;
 GO
 ALTER DATABASE [DB_Name] set multi_user
 GO
+```
+
+### Reset mySQL/MariaDB 'root' password
+
+##### Stop current services
+
+```
+systemctl stop mariadb
+```
+or
+```
+systemctl stop mysqld
+```
+
+##### Start in safe mode
+
+```
+mysqld_safe --skip-grant-tables --skip-networking &
+```
+
+##### Login as 'root' and change to 'mysql' DB
+
+```
+mysql -u root
+USE mysql;
+```
+
+##### Use one of the following options to reset the password
+
+```
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+```
+
+```
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('new_password');
+```
+
+```
+UPDATE user SET password=PASSWORD('new_password') WHERE User='root' AND Host = 'localhost';
+```
+
+##### Flush privileges and quit
+
+```
+FLUSH PRIVILEGES;
+quit
 ```
