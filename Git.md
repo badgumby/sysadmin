@@ -1,10 +1,21 @@
 # Git
 
+
+### List all branches
+
+```
+git branch -a
+```
+
+---
+
 ### Delete local branch
 
 ```
 git branch -d branch_to_delete
 ```
+
+---
 
 ### Delete remote branch
 
@@ -12,13 +23,11 @@ git branch -d branch_to_delete
 git push origin --delete branch_to_delete
 ```
 
+---
+
 ### Cleanup non-existent remote branches
 
-##### List all branches
-
-```
-git branch -a
-```
+##### List branches and find the one you want to remove
 
 > Example output:
 ```
