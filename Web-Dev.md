@@ -2,7 +2,7 @@
 
 ### Javascript Functions
 
-> Used on a Microsoft RDWAPage to load third-party stylesheets and set placeholders
+Used on a Microsoft RDWAPage to load third-party stylesheets and set placeholders
 
 ```javascript
 function loadjscssfile(filename, filetype){

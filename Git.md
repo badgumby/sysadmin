@@ -29,7 +29,7 @@ git push origin --delete branch_to_delete
 
 ##### List branches and find the one you want to remove
 
-> Example output:
+Example output:
 ```
 bash-4.2$ git branch -a
 * master

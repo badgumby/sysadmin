@@ -2,11 +2,11 @@
 
 ### OpenSSL - Generate a CSR with Subject Alertnate Name (SAN)
 
-> Issue the following command:
+Issue the following command:
 
 `openssl req -new -newkey rsa:2048 -nodes -keyout server.domain.com.key -out server.domain.com.csr -config csr-config.txt`
 
-> csr-config.txt should have the following lines:
+`csr-config.txt` should have the following lines:
 
 ```
 [req]
@@ -43,7 +43,7 @@ Testing with `logger`
 
 ### Shipping flat file logs via rsyslog
 
-> Add to /etc/rsyslog.conf
+Add to `/etc/rsyslog.conf`
 
 ```
 $ModLoad imfile
@@ -56,10 +56,10 @@ $InputRunFileMonitor
 local3.* @@syslog.domain.com:port
 ```
 
-> Ignore writing local3 facility to /var/log/syslog by updating /etc/rsyslog.d/50-default.conf
+Ignore writing local3 facility to `/var/log/syslog` by updating `/etc/rsyslog.d/50-default.conf`
 
 `*.*;auth,authpriv.none,local3.none -/var/log/syslog`
 
-> Extra: Ship all other active logs to syslog
+Extra: Ship all other active logs to syslog
 
 `*.* @syslog.domain.com:port`

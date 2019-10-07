@@ -2,15 +2,15 @@
 
 ### SSL/TLS cert issues
 
-> Copy the java cacerts to graylog directory
+Copy the java cacerts to graylog directory
 
 `sudo cp -a /usr/lib/jvm/jre-1.8.0-openjdk/lib/security/cacerts /etc/graylog/server/certs/cacerts.jks`
 
-> Import cert and trust it (default store password is: changeit)
+Import cert and trust it (default store password is: changeit)
 
 `sudo keytool -importcert -keystore /etc/graylog/server/certs/cacerts.jks -storepass changeit -alias server.dns.name -file /etc/graylog/server/certs/certname.crt`
 
-> After doing the above, update the `-Djavax.net.ssl.trustStore` argument on `GRAYLOG_SERVER_JAVA_OPTS` line in the `/etc/sysconfig/graylog-server` file
+After doing the above, update the `-Djavax.net.ssl.trustStore` argument on `GRAYLOG_SERVER_JAVA_OPTS` line in the `/etc/sysconfig/graylog-server` file
 
 ```
 # Path to the java executable.
@@ -27,4 +27,4 @@ GRAYLOG_SERVER_ARGS=""
 GRAYLOG_COMMAND_WRAPPER=""
 ```
 
-> Now restart Graylog
+Now restart Graylog
