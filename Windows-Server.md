@@ -68,3 +68,15 @@ Command to test the RDP connection from your machine
 ```
 Test-NetConnection server.domain.local -CommonTCPPort rdp
 ```
+
+# Robocopy
+
+### Batch file for creating a local mirror folder from a remote server
+
+```
+set year=%date:~10,4%
+set month=%date:~7,2%
+set day=%date:~4,2%
+robocopy "\\remote_server\share" "D:\Local_Folder" /MIR /SEC /R:2 /W:2 /LOG:C:\%year%-%month%-%day%.txt /np
+PAUSE
+```
