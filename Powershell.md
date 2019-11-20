@@ -25,3 +25,18 @@
 PS C:\> [DayTable]62
 Monday, Tuesday, Wednesday, Thursday, Friday
 ```
+
+# Registry Tweaks
+
+### Allow 'Run As Administrator' on Powershell Scripts
+
+```
+Windows Registry Editor Version 5.00
+
+[-HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\Shell\runas]
+[HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\Shell\runas]
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\Shell\runas\command]
+@="powershell \"-Command\" \"if((Get-ExecutionPolicy ) -ne 'AllSigned') { Set-ExecutionPolicy -Scope Process Bypass }; & '%1'\""
+```

@@ -75,8 +75,9 @@ Test-NetConnection server.domain.local -CommonTCPPort rdp
 
 ```
 $date = Get-Date -Format "yyyy-MM-dd_HH.mm"
+$filepath = "E:\Log_folder\"
 
-New-Item -Path "E:\Log_Folder" -Name "$date.txt" -ItemType "file"
-Start powershell -argument "gci 'E:\Log_Folder\' | Select -Last 1 | Get-Content -Wait -Tail 0"
-robocopy "\\remote_server\projects" "E:\local\projects" /MIR /SEC /COPY:DT /R:2 /W:2 /LOG:E:\Log_Folder\$date.txt /np /XD "\\remote_server\projects\Some_folder_to_exclude"
+New-Item -Path $filepath -Name "$date.txt" -ItemType "file"
+Start powershell -workingdirectory $filepath -argument "gci . | Select -Last 1 | Get-Content -Wait -Tail 0"
+robocopy "\\remote_server\projects" "E:\local\projects" /MIR /SEC /COPY:DT /R:2 /W:2 /LOG:E:\Log_Folder\$filepath$date.txt /np /XD "\\remote_server\projects\Some_folder_to_exclude"
 ```
