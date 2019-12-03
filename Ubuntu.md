@@ -1,6 +1,6 @@
 # Ubuntu
 
-### Import certificates into ca-certificates
+### Import certificates using ca-certificates
 
 Create a directory for these custom certificates
 
