@@ -63,3 +63,41 @@ Ignore writing local3 facility to `/var/log/syslog` by updating `/etc/rsyslog.d/
 Extra: Ship all other active logs to syslog
 
 `*.* @syslog.domain.com:port`
+
+### systemd service failure troubleshooting
+
+
+1. Find the failed services.
+
+```
+systemctl --failed
+```
+
+2. Find more info
+
+```
+systemctl status *failed_service_name*
+```
+
+It should provide information similar to below:
+
+```
+systemd-modules-load.service - Load Kernel Modules      
+   Loaded: loaded (/usr/lib/systemd/system/failed_service_name.service; static)     
+   Active: failed (Result: exit-code) since So 2019-12-13 09:12:19 CEST; 41s ago  
+     Docs: man:failed_service_name.service(8).  
+  Process: 465 ExecStart=/usr/lib/systemd/failed_service_name (code=exited, status=1/FAILURE)
+```
+
+If the `Process` ID is missing, restart the service to let it generate one.
+
+3. Investigate the PID
+
+```
+journalctl _PID=465
+--------------------------------------------------------------
+-- Logs begin at Tue 2019-04-16 09:17:05 CDT, end at Thu 20>
+-- No entries --
+```
+
+4. Review the PID logs to find the root cause of failure.
