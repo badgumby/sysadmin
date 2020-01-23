@@ -1,5 +1,11 @@
 # Linux (not specific to a distro)
 
+### List open network ports with process ID
+
+```
+sudo netstat -natp
+```
+
 ### OpenSSL - Generate a CSR with Subject Alertnate Name (SAN)
 
 Issue the following command:
