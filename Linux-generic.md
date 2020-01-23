@@ -107,3 +107,10 @@ journalctl _PID=465
 ```
 
 4. Review the PID logs to find the root cause of failure.
+
+### LDAPsearch CLI
+
+```
+ldapsearch -x -h ldap.server.com -p 389 -b "dc=server,dc=com" -D CN=srvAcct,OU=Service-Accounts,OU=Locations,DC=server,DC=com -w Password_Here
+
+```
