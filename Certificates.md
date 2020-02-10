@@ -29,17 +29,17 @@
 openssl pkcs12 -in [yourfile.pfx] -nocerts -out [keyfile-encrypted.key]
 ```
 
-# Extract certificate
+### Extract certificate
 ```
 openssl pkcs12 -in [yourfile.pfx] -clcerts -nokeys -out [certificate.cer]
 ```
 
-# Decrypt the key
+### Decrypt the key
 ```
 openssl rsa -in [keyfile-encrypted.key] -out [keyfile-decrypted.key]
 ```
 
-# Re-encrypt the key with AES128
+### Re-encrypt the key with AES128
 ```
 openssl rsa -aes128 -in [keyfile-decrypted.key] -out [keyfile-password.key]
 ```
