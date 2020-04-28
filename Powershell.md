@@ -1,5 +1,13 @@
 # Powershell Scriptlets
 
+### Install-Module fails due to cert
+
+> Issue this commmand in your script to enforce TLS 1.2
+
+```
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+```
+
 ### Convert bitwise mask to day of week
 
 > Build the table
